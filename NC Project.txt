@@ -1,0 +1,171 @@
+print("=============================================================")
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print(" -------------- CRICKET SCORING BOARD SYSTEM  ------------ ")
+print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+print("=============================================================")
+Score_Ind=0
+wicket_ind=0
+player_1_balls_play=0
+player_2_balls_play=0
+player_1_score=0
+player_2_score=0
+print()
+print()
+team_1_pak_player=[" Zainulabdein  ",
+               " kashif sheikh ", 
+               " Abrar ul Hassan",
+               " Babar Azam    ",
+               " Iftikhar Ali  ",
+               " Hassan Ali    ",
+               " Dhani Shanawz ",
+               " Ali Nawaz     "
+               ," Shoaib Malik  ",
+               "Hassan Ali    ",
+               "Sheheen Afridi"]
+
+team_2_Ind_player=[" Ms-Dhoni       ",
+               " Virat Koli     ", 
+               " Uveraj Singh   ",
+               " Lokesh Rahole  ",
+               " Umesha Yadeve  ",
+               " Muhammad Shammi",
+               " Muhammad Siraj ",
+               " Ishan Sharma   "
+               ," Adwaei Bhat    ",
+               "Akash Chopra   ",
+               "Jadeja kumar   "]
+list_of_player_ind=(','.join(team_2_Ind_player))
+list_of_player_pak=(','.join(team_1_pak_player))
+print("====================================================")
+print("=================TEAM PAKISTAN'S PLAYERS============")
+print("====================================================")
+for i in range(11):
+    print(i+1,"",str(team_1_pak_player[i]),"-------Strike Rate--- ",str(i+0.31))
+    print()
+print()
+print("====================================================")
+print("=================TEAM INDIAN'S PLAYERS============")
+print("====================================================")
+for i in range(11):
+    print(i+1,"",str(team_2_Ind_player[i]),"-------Strike Rate--- ",str(i+0.21))
+    print()
+print("====================================================")
+print()
+team_toss=input("Which Team Won The Toss : ")
+if team_toss == "Pakistan" or team_toss== "pakistan":
+    print("OK BEST TEAM PAKISTAN WILL PLAY")
+    print("PAKISTAN CHOOSE BATTING FIRST")
+elif team_toss == "India" or team_toss == "india":
+    print("OK GOOD TEAM INDIA WILL PLAY")
+    print("INDIA CHOOSE FIELDING FIRST")
+def pak_Runs(pak_score,pak_wickt,total_overs,balls_play_pak):
+    pakistan_score=0
+    pakistan_wickt=0
+    bal_pak_play=0
+    run_Rate_Pak=0
+    bastman_2 =0
+    bastman_1=0
+    projected_Score=0
+    
+    print()
+    print("===========OPNER'S PAKISTAN========")
+    print("------> ",str(team_1_pak_player[0]))
+    print("------> ",str(team_1_pak_player[1]))
+    while pak_wickt >= 9 or total_overs == 5:
+        
+        print("======================================================")
+        print("==============Total Overs of Pakistan 5 ==============")      
+        #balls_Play_Pak=int(input("Now, did pakistan ball play press 0 for No Play, Press 1 for Play : "))
+        balls_Play_Pak=1
+        if balls_Play_Pak == 1:
+
+            bal_pak_play = balls_Play_Pak+bal_pak_play
+            if bal_pak_play == 6:
+                print("Pakistan play 1 Over Complete")
+                print("Pakistan Now Play Second Over")
+                
+            elif  bal_pak_play == 12:
+                print("Pakistan Play 2 over Complete")
+                print("Pakistan Now Play 3 Over")
+                
+            elif  bal_pak_play == 18:
+                print("Pakistan Play 3 over Complete")
+                print("Pakistan Now Play 4 Over")
+            
+            elif  bal_pak_play == 24:
+                print("Pakistan Play 4 over Complete")
+                print("Pakistan Now Play 5 Over")
+            
+            elif  bal_pak_play == 30:
+                print("Pakistan Play 5 over Complete")
+        else:
+            print("Not Played")
+        print("Ball's pakistan : ",str(bal_pak_play))
+        
+        print("=================================================")
+        print()
+        print("============BATSMAN PLAYING==========")
+        selction_option=int(input("Who is Now on batting press 1 for BATSMAN 1 -- Press 2 for BATSMAN 2"))
+        if selction_option == 1:
+            bastman_1=int(input("Batsman 1 Runs Make : "))  
+        else:
+             bastman_2=int(input("Batsman 2 Runs Make : "))            
+        pak_score= bastman_1+bastman_2
+        if pak_score == 1:
+            pakistan_score=pak_score+pakistan_score
+            
+        elif  pak_score == 2:
+            pakistan_score=pak_score+pakistan_score
+            
+        elif  pak_score == 3:
+            pakistan_score=pak_score+pakistan_score
+            
+        elif  pak_score == 4:
+            pakistan_score=pak_score+ pakistan_score
+            
+        elif  pak_score == 5:
+            pakistan_score=pak_score+pakistan_score
+            
+        elif  pak_score == 6:
+            pakistan_score=pak_score+pakistan_score
+        else:
+            print("Sorry Select the Right Number Between 1-6")
+        print("======================================================")
+        print()
+        print("===============Score of Pakistan Team=============")
+        print("Total Score of pakistan is : ",str(pakistan_score))
+        print("==================================================")
+        print()
+        
+        pak_wickt=int(input("Now, did pakistan wicket drop (per ball) press 0 for No drop, Press 1 for Drop : "))
+        print("======================================================")
+        print("===============Wickets of Pakistan Team===============")
+        if pak_wickt == 1:
+            pakistan_wickt = pak_wickt+ pakistan_wickt
+        else:
+            print("No drop Pakistan Wicket")
+            
+        print("Total Wickets pakistan Drop : ",str(pakistan_wickt))
+        print("=====================================================")
+        print()
+
+        print("===================Run Rate of Pakistan===============")
+        run_Rate_Pak =  pakistan_score/bal_pak_play
+        print(run_Rate_Pak)
+        print("======================================================")
+        print()    
+        print("===================PROJECTED SCORE===============")
+        for i in range(5):
+            projected_Score=((pakistan_score+bal_pak_play)/2)
+            if projected_Score > 0:
+                projected_Score =pakistan_score+total_overs
+            else:
+                projected_Score =pakistan_score
+
+        print(projected_Score)
+        
+Score_pak=0
+wicket_pak=0
+total_overs=5
+balls_Play_Pak=0
+pak_Runs(Score_pak,wicket_pak,total_overs,balls_Play_Pak)
